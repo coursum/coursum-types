@@ -1,0 +1,26 @@
+{
+  "name": "coursum-types",
+  "version": "1.0.0",
+  "main": "./types/index.d.ts",
+  "repository": "https://github.com/coursum/coursum-types.git",
+  "author": "LuckyWind_sck <luckywindsck@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint types/**/*.ts",
+    "lint:fix": "yarn lint --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "types/**/*.ts": "yarn lint:fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "eslint": "^5.16.0 || ^6.8.0 || ^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "lint-staged": "^11.0.0",
+    "typescript": "^4.3.4",
+    "husky": "^6.0.0"
+  }
+}
