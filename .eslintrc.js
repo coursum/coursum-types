@@ -13,6 +13,17 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
   ],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.ts'],
+      },
+    },
+  },
   rules: {
+    'import/extensions': [
+      'error',
+      { ts: 'ignorePackages' },
+    ],
   },
 };
