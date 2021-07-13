@@ -1,11 +1,10 @@
 type Nullish = null | undefined;
 
-interface I18nData {
-  ja: string | Nullish;
-  en: string | Nullish;
-  kana?: string | Nullish;
+interface I18nData<DataType = string | Nullish> {
+  ja: DataType;
+  en: DataType;
+  kana?: DataType;
 }
-
 interface Title {
   name: I18nData;
   postscript: I18nData;
@@ -22,7 +21,7 @@ interface Lecturer {
 interface Schedule {
   year: number | Nullish;
   semester: I18nData;
-  times: I18nData;
+  times: I18nData<(string | Nullish)[]>;
   span: I18nData;
 }
 
