@@ -17,6 +17,8 @@ interface Schedule {
   semester: I18nData;
   // Column: Day of Week・Period
   times: I18nData<(string | Nullish)[]>;
+  // Title 1st Half / 2nd Half
+  span: I18nData;
 }
 
 interface EnglishSupport {
@@ -93,9 +95,8 @@ export interface CourseV2 {
   department: I18nData;
   lecturers: Lecturer[];
   schedule: Schedule;
-  // Column: location
   // Campus
-  location: string | Nullish;
+  location: I18nData;
   // Column: Unit
   credit: number | Nullish;
   englishSupport: EnglishSupport;
