@@ -75,6 +75,7 @@ interface Tag {
   // Column: Class Style
   // Enum: Lecture / Group Work / Workshop / Connecting to Other Sites
   types: I18nData<(string | Nullish)[]>;
+  language: I18nData;
   // Column: Subject Sort
   curriculumCode: string | Nullish; // ???
   // Column: GIGA Certificate
@@ -97,7 +98,6 @@ export interface CourseV2 {
   location: string | Nullish;
   // Column: Unit
   credit: number | Nullish;
-  language: I18nData;
   englishSupport: EnglishSupport;
   url: I18nData;
   // Column: Equipments & Software
