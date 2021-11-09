@@ -7,6 +7,7 @@ interface I18nData<DataType = string | Nullish> {
 }
 interface Title {
   name: I18nData;
+  // The red text next to title
   postscript: I18nData;
 }
 
@@ -21,7 +22,9 @@ interface Lecturer {
 interface Schedule {
   year: number | Nullish;
   semester: I18nData;
+  // Day of week & period
   times: I18nData<(string | Nullish)[]>;
+  // Quarter
   span: I18nData;
 }
 
@@ -41,7 +44,10 @@ interface Tag {
   giga: boolean | Nullish;
 }
 
-export interface Course {
+// Available time: 2002 ~ 2020 Spring
+// Data source: 講義案内 & SOI database
+// URL: https://web.archive.org/web/20180930102455/https://vu.sfc.keio.ac.jp/course_u/data/2018/title.html (Archive)
+export interface CourseV1 {
   title: Title;
   lecturers: Lecturer[];
   schedule: Schedule;
@@ -55,4 +61,5 @@ export interface Course {
   yearClassId: string; // non nullish
   syllabusURL: string | Nullish;
   tag: Tag;
+  version: 1;
 }

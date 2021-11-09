@@ -1,7 +1,7 @@
-import { Course } from './course';
+import { CourseV1 } from './course-schemas/CourseV1';
 import { SearchResponse } from './search-response';
 
 export {
-  Course,
+  CourseV1,
   SearchResponse,
 };
