@@ -21,23 +21,6 @@ interface Schedule {
   span: I18nData;
 }
 
-interface EnglishSupport {
-  languageUsed: {
-    lecture: I18nData;
-    material: I18nData;
-    discussion: I18nData;
-    groupWork: I18nData;
-    presentation: I18nData;
-  };
-  japaneseLanguageSkillLevel: {
-    reading: I18nData;
-    writing: I18nData;
-    requiredSkillsForReadingAndWriting: I18nData;
-    speaking: I18nData;
-    listening: I18nData;
-  };
-}
-
 interface Registration {
   prerequisite: {
     // Column: Prerequisites -> Prerequisite Courses
@@ -99,7 +82,7 @@ export interface CourseV2 {
   location: I18nData;
   // Column: Unit
   credit: number | Nullish;
-  englishSupport: EnglishSupport;
+  englishSupport: I18nData;
   url: I18nData;
   // Column: Equipments & Software
   tools: I18nData;
