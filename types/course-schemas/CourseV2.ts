@@ -1,8 +1,8 @@
 type Nullish = null | undefined;
 
-interface I18nData<DataType = string | Nullish> {
-  ja: DataType;
-  en: DataType;
+interface I18nData<JaDataType = string | Nullish, EnDataType = JaDataType> {
+  ja: JaDataType;
+  en: EnDataType;
 }
 
 interface Lecturer {
@@ -18,7 +18,10 @@ interface Schedule {
   // Column: Day of Week・Period
   times: I18nData<(string | Nullish)[]>;
   // Title 1st Half / 2nd Half
-  span: I18nData;
+  span: I18nData<
+    '前半' | '後半' | Nullish,
+    'First half' | 'Second half' | Nullish
+  >;
 }
 
 interface Registration {
