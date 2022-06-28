@@ -1,11 +1,12 @@
 {
   "name": "coursum-types",
   "version": "1.0.0",
-  "main": "./types/index.ts",
+  "main": "./dist/index.js",
   "repository": "https://github.com/coursum/coursum-types.git",
   "author": "LuckyWind_sck <luckywindsck@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "rm -rf ./dist && tsc",
     "lint": "eslint types/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "prepare": "husky install"
