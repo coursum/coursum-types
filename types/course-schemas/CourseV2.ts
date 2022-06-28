@@ -1,4 +1,5 @@
-type Nullish = null | undefined;
+import EnumsV2 from '../enums/EnumsV2';
+import type { GetEnumType, Nullish } from '../util';
 
 interface I18nData<JaDataType = string | Nullish, EnDataType = JaDataType> {
   ja: JaDataType;
@@ -78,7 +79,7 @@ export interface CourseV2 {
   // For seminar, it will be Column: Study Group Theme
   title: I18nData;
   // Column: Department Name
-  department: I18nData;
+  department: GetEnumType<typeof EnumsV2.Departments>;
   lecturers: Lecturer[];
   schedule: Schedule;
   // Campus

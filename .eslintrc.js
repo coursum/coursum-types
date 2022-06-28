@@ -23,9 +23,20 @@ module.exports = {
   rules: {
     '@typescript-eslint/type-annotation-spacing': 'error',
     '@typescript-eslint/member-delimiter-style': 'error',
+
+    /* Import */
     'import/extensions': [
       'error',
       { ts: 'ignorePackages' },
+    ],
+    'import/order': ['error',
+      {
+        alphabetize: { order: 'asc' },
+        'newlines-between': 'always',
+      },
+    ],
+    'sort-imports': ['error',
+      { ignoreDeclarationSort: true },
     ],
   },
 };
