@@ -1,7 +1,8 @@
-declare type Nullish = null | undefined;
-interface I18nData<DataType = string | Nullish> {
-    ja: DataType;
-    en: DataType;
+import { EnumsV3 } from '../enums/EnumsV3';
+import type { GetEnumType, Nullish } from '../util';
+interface I18nData<JaDataType = string | Nullish, EnDataType = JaDataType> {
+    ja: JaDataType;
+    en: EnDataType;
 }
 interface Lecturer {
     name: I18nData;
@@ -10,7 +11,7 @@ interface Schedule {
     year: number;
     semester: I18nData;
     times: I18nData<(string | Nullish)[]>;
-    span: I18nData;
+    span: I18nData<'前半' | '後半' | Nullish, 'First half' | 'Second half' | Nullish>;
 }
 interface Registration {
     prerequisite: {
@@ -37,10 +38,10 @@ interface Tag {
     curriculumCode: string | Nullish;
     giga: boolean | Nullish;
 }
-export interface CourseV2 {
+export interface CourseV3 {
     id: string;
     title: I18nData;
-    department: I18nData;
+    department: GetEnumType<typeof EnumsV3.Departments>;
     lecturers: Lecturer[];
     schedule: Schedule;
     location: I18nData;
@@ -58,6 +59,6 @@ export interface CourseV2 {
     related: string | Nullish;
     syllabusURL: string | Nullish;
     tag: Tag;
-    version: 2;
+    version: 3;
 }
 export {};

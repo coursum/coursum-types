@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EnumsV3 = void 0;
 var Departments = {
     ja: [
         '教職課程センター',
@@ -12,7 +13,7 @@ var Departments = {
         'POLICY MANAGEMENT / ENVIRONMENT AND INFORMATION STUDIES',
     ],
 };
-var Enums = {
+// eslint-disable-next-line import/prefer-default-export
+exports.EnumsV3 = {
     Departments: Departments,
 };
-exports.default = Enums;
