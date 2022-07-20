@@ -1,1 +1,35 @@
 # coursum-types
+
+Common Type definitions for Coursum in TypeScript
+
+## Versions
+
+Here's the version matrix:
+
+| Schema version | Status          | Time                      | Syllabus System         | Data Source  |
+| -------------- | --------------- | ------------------------- | ----------------------- | ------------ |
+| v3             | WIP             | Spring 2022 ~ Now         | [SYLLABUS SEARCH][2]    | Scraping     |
+| v2             | Currently Using | Autumn 2020 ~ Autumn 2021 | [SYLLABUS SEARCH][2]    | Scraping     |
+| v1             | Deprecated      | 2002 ~ Spring 2020        | [講義案内][1] (Archive) | SOI database |
+
+### v3 (WIP)
+The data schema version 3 is designed for the current syllabus system (SYLLABUS SEARCH) which was released in Autumn 2020.
+
+It will support enums for existing fields and will include the new K-Number system.
+
+
+### v2 (Currently using)
+The data schema version 2 is designed for the current syllabus system (SYLLABUS SEARCH) which was released in Autumn 2020.
+
+This is the current data schema used in coursum project.
+
+
+### v1 (Deprecated)
+The data schema version 1 is designed for the old syllabus system (講義案内) which was released in 2002.
+
+The old system became unavailable from 2020 Spring.
+
+
+
+[1]: https://web.archive.org/web/20180930102455/https://vu.sfc.keio.ac.jp/course_u/data/2018/title.html
+[2]: https://syllabus.sfc.keio.ac.jp/
