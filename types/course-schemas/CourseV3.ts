@@ -1,8 +1,9 @@
-type Nullish = null | undefined;
+import { EnumsV3 } from '../enums/EnumsV3';
+import type { GetEnumType, Nullish } from '../util';
 
-interface I18nData<DataType = string | Nullish> {
-  ja: DataType;
-  en: DataType;
+interface I18nData<JaDataType = string | Nullish, EnDataType = JaDataType> {
+  ja: JaDataType;
+  en: EnDataType;
 }
 
 interface Lecturer {
@@ -18,7 +19,10 @@ interface Schedule {
   // Column: Day of Week・Period
   times: I18nData<(string | Nullish)[]>;
   // Title 1st Half / 2nd Half
-  span: I18nData;
+  span: I18nData<
+    '前半' | '後半' | Nullish,
+    'First half' | 'Second half' | Nullish
+  >;
 }
 
 interface Registration {
@@ -70,12 +74,12 @@ interface Tag {
 // Available time: 2020 Autumn ~ Now (2021 Autumn)
 // Data source: SYLLABUS SEARCH
 // URL: syllabus.sfc.keio.ac.jp
-export interface CourseV2 {
+export interface CourseV3 {
   id: string; // non nullish
   // For seminar, it will be Column: Study Group Theme
   title: I18nData;
   // Column: Department Name
-  department: I18nData;
+  department: GetEnumType<typeof EnumsV3.Departments>;
   lecturers: Lecturer[];
   schedule: Schedule;
   // Campus
@@ -103,5 +107,5 @@ export interface CourseV2 {
   // Original URL of the syllabus page
   syllabusURL: string | Nullish;
   tag: Tag;
-  version: 2;
+  version: 3;
 }

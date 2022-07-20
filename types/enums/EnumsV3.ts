@@ -11,8 +11,7 @@ const Departments = {
   ],
 } as const;
 
-const Enums = {
+// eslint-disable-next-line import/prefer-default-export
+export const EnumsV3 = {
   Departments,
 };
-
-export default Enums;
