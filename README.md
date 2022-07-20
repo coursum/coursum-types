@@ -8,8 +8,15 @@ Here's the version matrix:
 
 | Schema version | Status          | Time                      | Syllabus System         | Data Source  |
 | -------------- | --------------- | ------------------------- | ----------------------- | ------------ |
+| v3             | WIP             | Spring 2022 ~ Now         | [SYLLABUS SEARCH][2]    | Scraping     |
 | v2             | Currently Using | Autumn 2020 ~ Autumn 2021 | [SYLLABUS SEARCH][2]    | Scraping     |
 | v1             | Deprecated      | 2002 ~ Spring 2020        | [講義案内][1] (Archive) | SOI database |
+
+### v3 (WIP)
+The course schema version 3 is designed for the current syllabus system (SYLLABUS SEARCH) which was released in Autumn 2020.
+
+It will support enums for existing fields and will include the new K-Number system.
+
 
 ### v2 (Currently using)
 The course schema version 2 is designed for the current syllabus system (SYLLABUS SEARCH) which was released in Autumn 2020.
