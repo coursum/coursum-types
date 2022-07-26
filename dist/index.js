@@ -9,8 +9,11 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnumsV3 = void 0;
-var EnumsV3_1 = require("./enums/EnumsV3");
-Object.defineProperty(exports, "EnumsV3", { enumerable: true, get: function () { return EnumsV3_1.EnumsV3; } });
+var EnumsV3_1 = __importDefault(require("./enums/EnumsV3"));
+exports.EnumsV3 = EnumsV3_1.default;
 __exportStar(require("./util"), exports);
