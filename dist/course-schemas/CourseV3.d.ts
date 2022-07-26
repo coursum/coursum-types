@@ -3,17 +3,17 @@ import type { Checked, GetI18nEnumType, GetI18nEnumTypeArray, I18nData, Locales,
 interface Lecturer {
     name: I18nData;
 }
-declare type Time = {
-    [locale in Locales]: ({
-        string: string;
-        day: Checked<typeof EnumsV3.Days[locale]>;
-        period: Checked<typeof EnumsV3.Periods>;
-    })[];
+declare type Time<locale extends Locales> = {
+    string: string;
+    day: Checked<typeof EnumsV3.Days[locale]>;
+    period: Checked<typeof EnumsV3.Periods>;
 };
 interface Schedule {
     year: Checked<typeof EnumsV3.Years>;
     semester: GetI18nEnumType<typeof EnumsV3.Semesters>;
-    times: Time[];
+    times: {
+        [locale in Locales]: Time<locale>[];
+    };
     span: GetI18nEnumType<typeof EnumsV3.Spans>;
 }
 interface Registration {

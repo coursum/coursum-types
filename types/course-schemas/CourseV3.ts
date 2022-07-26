@@ -11,13 +11,11 @@ interface Lecturer {
 }
 
 // TODO: seperate type definition for the case of TBD (To be decided) time
-type Time = {
-  [locale in Locales]: ({
-    string: string;
-    day: Checked<typeof EnumsV3.Days[locale]>;
-    period: Checked<typeof EnumsV3.Periods>;
-  })[];
-};
+type Time<locale extends Locales> = {
+  string: string;
+  day: Checked<typeof EnumsV3.Days[locale]>;
+  period: Checked<typeof EnumsV3.Periods>;
+}
 
 interface Schedule {
   // Column: Year/Semester
@@ -25,7 +23,7 @@ interface Schedule {
   // Column: Year/Semester
   semester: GetI18nEnumType<typeof EnumsV3.Semesters>;
   // Column: Day of Week・Period
-  times: Time[];
+  times: { [locale in Locales]: Time<locale>[] };
   // Title 1st Half / 2nd Half
   span: GetI18nEnumType<typeof EnumsV3.Spans>;
 }
