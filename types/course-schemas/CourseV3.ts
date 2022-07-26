@@ -1,6 +1,6 @@
 import EnumsV3 from '../enums/EnumsV3';
 import type {
-  GetEnumElementType, GetI18nEnumType, I18nData, Locales, Nullish,
+  GetEnumElementType, GetI18nEnumType, GetI18nEnumTypeArray, I18nData, Locales, Nullish,
 } from '../util';
 
 // TODO: make a more strict type to ensure that Enum Array does not have duplicate
@@ -58,27 +58,22 @@ interface Screening {
   assignment: I18nData;
 }
 
-type Aspect<locale extends Locales> = GetEnumElementType<typeof EnumsV3.Aspects[locale]>
-type Type<locale extends Locales> = GetEnumElementType<typeof EnumsV3.Types[locale]>
-
 interface Tag {
   // Column: Aspect name
-  aspects: { [locale in Locales]: Aspect<locale>[] | Nullish };
+  aspects: GetI18nEnumTypeArray<typeof EnumsV3.Aspects>;
   // Column: Field (Undergraduate)
   category: GetI18nEnumType<typeof EnumsV3.Categories>;
   // Column: Class Format
   // Online / On campus
   classFormat: GetI18nEnumType<typeof EnumsV3.ClassFormats>;
   // Column: Class Style
-  types: { [locale in Locales]: Type<locale>[] | Nullish };
+  types: GetI18nEnumTypeArray<typeof EnumsV3.Types>;
   language: GetI18nEnumType<typeof EnumsV3.Languages>;
   // Column: Subject Sort
   curriculumCode: string | Nullish; // ???
   // Column: GIGA Certificate
   giga: boolean | Nullish;
 }
-
-type Locations<locale extends Locales> = GetEnumElementType<typeof EnumsV3.Locations[locale]>
 
 // Available time: 2020 Autumn ~ Now (2021 Autumn)
 // Data source: SYLLABUS SEARCH
@@ -93,7 +88,7 @@ export interface CourseV3 {
   lecturers: Lecturer[];
   schedule: Schedule;
   // Campus
-  location: { [locale in Locales]: Locations<locale>[] | Nullish };
+  location: GetI18nEnumTypeArray<typeof EnumsV3.Locations>;
   // Column: Unit
   credit: GetEnumElementType<typeof EnumsV3.Credits>;
   englishSupport: I18nData;
