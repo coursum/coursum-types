@@ -5,7 +5,7 @@ interface Lecturer {
 }
 declare type Time = {
     [locale in Locales]: ({
-        string: Checked<typeof EnumsV3.TimeStrings[locale]>;
+        string: string;
         day: Checked<typeof EnumsV3.Days[locale]>;
         period: Checked<typeof EnumsV3.Periods>;
     })[];
