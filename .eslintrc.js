@@ -21,6 +21,11 @@ module.exports = {
     },
   },
   rules: {
+    /* Fix ESLint error of "Cannot read property 'loc' of undefined." */
+    // https://github.com/typescript-eslint/typescript-eslint/issues/792#issuecomment-517762395
+    indent: 'off',
+    '@typescript-eslint/indent': ['error', 2],
+
     '@typescript-eslint/type-annotation-spacing': 'error',
     '@typescript-eslint/member-delimiter-style': 'error',
 
