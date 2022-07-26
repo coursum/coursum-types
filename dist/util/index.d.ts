@@ -12,3 +12,6 @@ export declare type GetEnumElementType<T extends Enum> = T extends readonly (inf
 export declare type GetI18nEnumType<T extends I18nEnum> = {
     [locale in Locales]: GetEnumElementType<T[locale]> | Nullish;
 };
+export declare type GetI18nEnumTypeArray<T extends I18nEnum> = {
+    [locale in Locales]: GetEnumElementType<T[locale]>[] | Nullish;
+};

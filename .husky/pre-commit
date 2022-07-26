@@ -2,4 +2,6 @@
 . "$(dirname "$0")/_/husky.sh"
 
 yarn lint-staged
+# When yarn build fail, run `git restore dist` manually
+# `yarn build && git add dist || git restore dist` will make the command exit 0 (Success)
 yarn build && git add dist

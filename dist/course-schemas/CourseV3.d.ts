@@ -1,5 +1,5 @@
 import EnumsV3 from '../enums/EnumsV3';
-import type { GetEnumElementType, GetI18nEnumType, I18nData, Locales, Nullish } from '../util';
+import type { GetEnumElementType, GetI18nEnumType, GetI18nEnumTypeArray, I18nData, Locales, Nullish } from '../util';
 interface Lecturer {
     name: I18nData;
 }
@@ -32,31 +32,22 @@ interface Screening {
     quota: number | Nullish;
     assignment: I18nData;
 }
-declare type Aspect<locale extends Locales> = GetEnumElementType<typeof EnumsV3.Aspects[locale]>;
-declare type Type<locale extends Locales> = GetEnumElementType<typeof EnumsV3.Types[locale]>;
 interface Tag {
-    aspects: {
-        [locale in Locales]: Aspect<locale>[] | Nullish;
-    };
+    aspects: GetI18nEnumTypeArray<typeof EnumsV3.Aspects>;
     category: GetI18nEnumType<typeof EnumsV3.Categories>;
     classFormat: GetI18nEnumType<typeof EnumsV3.ClassFormats>;
-    types: {
-        [locale in Locales]: Type<locale>[] | Nullish;
-    };
+    types: GetI18nEnumTypeArray<typeof EnumsV3.Types>;
     language: GetI18nEnumType<typeof EnumsV3.Languages>;
     curriculumCode: string | Nullish;
     giga: boolean | Nullish;
 }
-declare type Locations<locale extends Locales> = GetEnumElementType<typeof EnumsV3.Locations[locale]>;
 export interface CourseV3 {
     id: string;
     title: I18nData;
     department: GetI18nEnumType<typeof EnumsV3.Departments>;
     lecturers: Lecturer[];
     schedule: Schedule;
-    location: {
-        [locale in Locales]: Locations<locale>[] | Nullish;
-    };
+    location: GetI18nEnumTypeArray<typeof EnumsV3.Locations>;
     credit: GetEnumElementType<typeof EnumsV3.Credits>;
     englishSupport: I18nData;
     url: I18nData;
