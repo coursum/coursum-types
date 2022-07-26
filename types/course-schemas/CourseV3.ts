@@ -108,7 +108,7 @@ export interface CourseV3 {
   // Column: Prerequisites -> Related Courses
   related: string | Nullish;
   // Original URL of the syllabus page
-  syllabusURL: string | Nullish;
+  syllabusURL: I18nData;
   tag: Tag;
   version: 3;
 }

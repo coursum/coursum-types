@@ -60,7 +60,7 @@ export interface CourseV3 {
     registration: Registration;
     screening: Screening;
     related: string | Nullish;
-    syllabusURL: string | Nullish;
+    syllabusURL: I18nData;
     tag: Tag;
     version: 3;
 }
