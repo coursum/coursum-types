@@ -1,17 +1,17 @@
 import EnumsV3 from '../enums/EnumsV3';
-import type { GetEnumElementType, GetI18nEnumType, GetI18nEnumTypeArray, I18nData, Locales, Nullish } from '../util';
+import type { Checked, GetI18nEnumType, GetI18nEnumTypeArray, I18nData, Locales, Nullish } from '../util';
 interface Lecturer {
     name: I18nData;
 }
 declare type Time = {
     [locale in Locales]: ({
-        string: GetEnumElementType<typeof EnumsV3.TimeStrings[locale]>;
-        day: GetEnumElementType<typeof EnumsV3.Days[locale]>;
-        period: GetEnumElementType<typeof EnumsV3.Periods>;
-    } | Nullish)[];
+        string: Checked<typeof EnumsV3.TimeStrings[locale]>;
+        day: Checked<typeof EnumsV3.Days[locale]>;
+        period: Checked<typeof EnumsV3.Periods>;
+    })[];
 };
 interface Schedule {
-    year: GetEnumElementType<typeof EnumsV3.Years>;
+    year: Checked<typeof EnumsV3.Years>;
     semester: GetI18nEnumType<typeof EnumsV3.Semesters>;
     times: Time[];
     span: GetI18nEnumType<typeof EnumsV3.Spans>;
@@ -48,7 +48,7 @@ export interface CourseV3 {
     lecturers: Lecturer[];
     schedule: Schedule;
     location: GetI18nEnumTypeArray<typeof EnumsV3.Locations>;
-    credit: GetEnumElementType<typeof EnumsV3.Credits>;
+    credit: Checked<typeof EnumsV3.Credits>;
     englishSupport: I18nData;
     url: I18nData;
     tools: I18nData;
